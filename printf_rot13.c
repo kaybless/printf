@@ -1,37 +1,32 @@
 #include "main.h"
 /**
- * printf_rot13 - printf str to ROT13 place into buffer
- * @args: type struct va_arg where is allocated printf arguments
- * Return: counter
+ * printf_rot13 - printf the rots13'ed string
+ * @R: string to convert
+ * Return: size the output text
  *
  */
-int printf_rot13(va_list args)
+int printf_rot13(va_list R)
 {
-	int i, j, counter = 0;
-	int k = 0;
-	char *s = va_arg(args, char*);
-	char alpha[] = {"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"};
-	char beta[] = {"nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"};
+	int i, j, counter = 0
+	char *r;
+	char input[] = {"abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"};
+	char output[] = {"nopqrstuvwxyzabcdefghijklm NOPQRSTUVWXYZABCDEFGHIJKLM"};
 
-	if (s == NULL)
-		s = "(null)";
-	for (i = 0; s[i]; i++)
+	  r = va_arg(R, char *);
+               if (r == NULL)
+		r = "(null)";
+	for (j = 0; r[i] != '\0'; j++)
 	{
-		k = 0;
-		for (j = 0; alpha[j] && !k; j++)
+		for (i = 0; input[i] != '\0'; i++)
 		{
-			if (s[i] == alpha[j])
+			if (r[j] == input[i])
 			{
-				_putchar(beta[j]);
+				_putchar(output[i]);
 				counter++;
-				k = 1;
+				break;
 			}
 		}
-		if (!k)
-		{
-			_putchar(s[i]);
-			counter++;
-		}
+		
 	}
-	return (counter);
+        return (count);
 }
