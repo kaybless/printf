@@ -1,0 +1,81 @@
+\" _printf man page
+.\"
+.\"
+.\"
+.TH _PRINTF "May 22nd, 2022" "0.1" "Library functions"
+
+.SH NAME
+.SH ""
+
+.B _printf
+- version for printf function information sharing.
+
+.SH SYNOPSIS
+.SH ""
+
+#include "main.h"
+
+int _printf(const char *[FORMAT], ...);
+
+.SH DESCRIPTION
+.SH ""
+
+
+The printf function sends formatted output to stdout. printf processes its arguments firstly by
+printing the characters it finds in the first argument,
+one by one.
+
+Conversion Specifiers
+
+d, i	The int argument is converted to signed decimal notation.
+
+o, u, x, X, b
+	The unsigned int argument is converted to unsigned octal (o), unsigned decimal (u), unsigned binary (b), or unsigned hexadecimal (x and X) notation. The letters abcdef are used for x conversions, and ABCDEF for X conversions.
+
+c	The int argument is converted to an unsigned char, and the resulting character is written.
+
+s	The const char * argument is expected to be a pointer to an array of character type (pointer to a string). Characters from the array are written up to (but not including) a terminating null byte ('\0').
+
+r	The const char * argument is expected to be a pointer to an array of character type (pointer to a string). Characters from the array are written in reverse order.
+
+R	The const char * argument is expected to be a pointer to an array of character type (pointer to a string). Characters from the array are encrypted using rot13 and then printed
+
+.SH RETURN VALUE
+A custom _printf() for learning purposes was developed by cohort  #6 students Kayode Adeniji and Gerald Ugwuanyi as a first group project.
+_printf() function format string is a character string, beginning and ending in its initial shift state should any arise. 
+These arguments are placed using the percentage '%' operator
+
+.SS Compilation
+
+.P
+.RS
+#include "main.h"
+
+$ gcc -Wall -Werror -Wextra -pedantic -Wno-format *.c
+$ gcc -Wall -Werror -Wextra -pedantic -g -Wno-format *.c (for gdb debbuging)
+.RE
+
+.SS Printing
+.RS
+
+int _printf(const char *[FORMAT], ...);
+
+.SS Example
+
+.Input:
+prinf(My age is %d years, 24)
+
+.Output:
+My age is 23 years
+
+%d is format specifier for integer
+
+.SS Return Value
+
+Return value is a n number of characters except NULL
+The return 0; statement inside the main() function is the "Exit status" of the program.
+
+.SH "AUTHORS"
+.SH ""
+
+Kayode Adeniji and Gerald U
